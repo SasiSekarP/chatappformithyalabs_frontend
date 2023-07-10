@@ -1,0 +1,65 @@
+.contactContainer{
+    height: 100vh;
+    background-color: rgb(240, 240, 230);
+}
+
+.contactNames{
+    padding: 1rem;
+    border: 0px;
+    border-bottom: 1px solid black;
+    width: 100%;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.newGroupContainer{
+    padding: 1rem;
+    border: 0px;
+    border-bottom: 1px solid black;
+    width: 100%;
+    color: black;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.newGroupBtn{
+    background-color: blue;
+    color: white;
+    font-weight: 900;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+.newGroupBtn:hover{
+    box-shadow: blue 1px 1px 5px;
+}
+
+.contactdp{
+    width: 3rem;
+    border-radius: 1.5rem;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.contactNames:hover{
+    background-color: rgb(211, 211, 211);
+    border: none;
+    border-bottom: 1px solid black;
+    box-shadow: black 0px 0px 1px;
+}
+
+.chatboxlinkContainer{
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: scroll;
+}
+
+.contactNames:focus{
+    outline: none;
+    
+}

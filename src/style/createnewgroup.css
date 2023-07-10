@@ -1,0 +1,23 @@
+.checkrow{
+    outline: none;
+    border: 0px;
+    box-shadow: rgb(149, 147, 147) 0px 0px 2px;
+    padding: 10px;
+    width: 20rem;
+    display: flex;
+}
+
+.checkboxcontainer{
+    border: 1px solid black;
+    max-height: 10rem;
+    overflow-y: scroll;
+}
+
+.checkboxlable{
+    padding-left: 10px;
+}
+
+.creategroupclosebtnrow{
+    width: 20rem;
+    text-align: end;
+}

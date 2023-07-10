@@ -1,0 +1,112 @@
+.chatareaContainer{
+    background-image: url(https://i.pinimg.com/originals/98/da/8f/98da8f9306de27424460d16e53938b72.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatareaheader{
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(86, 87, 86);
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.closeLinkBtn{
+    color: aliceblue;
+    font-weight: 900;
+}
+
+.chatboxinputrow{
+    width: 100%;
+    padding: 5px 1rem 1rem;
+    display: flex;
+}
+
+.chatboxparentcontainer{
+    max-width: 25rem;
+}
+
+.singleChatProfileArea{
+    display: flex;
+    align-items: center;
+}
+
+.chatboxinput{
+    flex:1 ;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.nochatarea{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chatboxinput:focus{
+    outline: none;
+}
+
+.chatareasendbtn{
+    padding: 1rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 900;
+    font-size: 20px;
+    background-color: blue;
+    color: white;
+}
+
+.mesagedisplayarea{
+    flex:1 ;
+}
+
+.mesagedisplayarea{
+    display: flex;
+    flex-direction: column;
+    flex:1 ;
+    overflow-y: scroll;
+}
+
+.messageTag{
+    padding: 1rem;
+    border: 1px solid black;
+    width: fit-content;
+    border-radius: 5px;
+    margin: 1rem;
+    background-color: white;
+}
+
+.messageTagContainer{
+    width: 100%;
+    display: flex;
+}
+
+.rightmessage{
+    justify-content: flex-end;
+    padding-left: 15%;
+}
+
+.leftmessage{
+    justify-content: flex-start;
+    padding-right: 15%;
+}
+
+.senderDetails{
+    color: blue;
+    font-weight: 900;
+    padding-bottom: 10px;
+}

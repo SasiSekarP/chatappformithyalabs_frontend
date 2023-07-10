@@ -1,0 +1,26 @@
+.navbarcontainer{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(57, 57, 57);
+    padding: 1rem;
+}
+
+.activeTab{
+    color: white;
+    font-weight: 900;
+}
+
+.inactiveTab{
+    color: white;
+}
+
+.logoutbtn{
+    background-color: transparent;
+    border: none;
+}
+
+.logoutbtn:hover{
+    cursor: pointer;
+}
