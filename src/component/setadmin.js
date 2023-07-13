@@ -33,13 +33,14 @@ const Setadmin = () => {
     });
     alert("Group created successfully");
 
-    navigate("/group", { replace: true });
+    navigate("/grouphome", { replace: true });
   };
 
   useEffect(() => {
     socket.emit("sendmemberlist", groupid);
 
     socket.on("backendsendingmemberlisttomakeadmin", (data) => {
+      console.log();
       const newMembers = data.filter((data) => {
         return data !== sender;
       });
@@ -84,9 +85,11 @@ const Setadmin = () => {
           );
         })}
       </div>
-      <button type="submit" className="newGroupBtn">
-        Submit
-      </button>
+      <div className="editformbtncontainer">
+        <button type="submit" className="newGroupBtn">
+          Submit
+        </button>
+      </div>
     </form>
   );
 };

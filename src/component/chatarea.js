@@ -6,6 +6,8 @@ import { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { io } from "socket.io-client";
 
+import Contact from "./contact";
+
 const Chatarea = () => {
   const token = Cookies.get("token");
   const navigate = useNavigate();
@@ -28,6 +30,7 @@ const Chatarea = () => {
   };
 
   const socket = io("http://localhost:4000");
+
   const sendmessage = () => {
     socket.emit("frontendsendingcontactmessage", messageDetails);
     setmessageDetails({
@@ -37,7 +40,7 @@ const Chatarea = () => {
     });
 
     socket.on("messageUpdated", (data) => {
-      window.location.reload();
+      // window.location.reload();
       setsinglepersonchat(data);
     });
   };
@@ -58,7 +61,7 @@ const Chatarea = () => {
   }, [socket]);
 
   useEffect(() => {
-    socket.emit("sendSinglePersonChat", { sender, receiver });
+    socket.emit("sendSinglePersonChat", { sender, receiver, token });
   }, []);
 
   useEffect(() => {
@@ -68,55 +71,65 @@ const Chatarea = () => {
   }, [token, navigate]);
 
   return (
-    <div className="chatareaContainer">
-      <div className="chatareaheader">
-        <div className="singleChatProfileArea">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSngSZYmJj4uV3dY8s8Pi-WcERTG7VVgupXlcm5LRQchQ7pwcLmU4erCoaZQ6dulh5G6FA&usqp=CAU"
-            alt="img"
-            className="contactdp"
-          ></img>
-          {receiver}
-        </div>
-        <Link className="closeLinkBtn" to="/contact">
-          <AiOutlineClose />
-        </Link>
+    <div className="homecontainer">
+      <div className="chatleftcontainer">
+        <Contact />
       </div>
-
-      <div className="mesagedisplayarea" ref={mesagedisplayRef}>
-        {singlepersonchat.map((data, index) => {
-          return (
-            <div
-              key={index}
-              className={
-                data.sender === sender
-                  ? "messageTagContainer rightmessage"
-                  : "messageTagContainer leftmessage"
-              }
-            >
-              <div className="messageTag">
-                <div className="senderDetails">{data.sender}</div>
-                <div>{data.message}</div>
-              </div>
+      <div className="chatrightcontainer">
+        <form onSubmit={sendmessage} className="chatareaContainer">
+          <div className="chatareaheader">
+            <div className="singleChatProfileArea">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSngSZYmJj4uV3dY8s8Pi-WcERTG7VVgupXlcm5LRQchQ7pwcLmU4erCoaZQ6dulh5G6FA&usqp=CAU"
+                alt="img"
+                className="contactdp"
+              ></img>
+              {receiver}
             </div>
-          );
-        })}
-      </div>
+            <Link className="closeLinkBtn" to="/contacthome">
+              <AiOutlineClose />
+            </Link>
+          </div>
 
-      <div className="chatboxinputrow">
-        <textarea
-          className="chatboxinput"
-          placeholder="Message..."
-          id="message"
-          name="message"
-          value={messageDetails.message}
-          onChange={(e) => {
-            updatemessage(e);
-          }}
-        ></textarea>
-        <button className="chatareasendbtn" type="submit" onClick={sendmessage}>
-          send
-        </button>
+          <div className="mesagedisplayarea" ref={mesagedisplayRef}>
+            {singlepersonchat.map((data, index) => {
+              return (
+                <div
+                  key={index}
+                  className={
+                    data.sender === sender
+                      ? "messageTagContainer rightmessage"
+                      : "messageTagContainer leftmessage"
+                  }
+                >
+                  <div className="messageTag">
+                    <div className="senderDetails">
+                      {data.sender !== sender && <div>{data.sender}</div>}
+                      {data.sender === sender && <div>you</div>}
+                    </div>
+                    <div>{data.message}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="chatboxinputrow">
+            <textarea
+              className="chatboxinput"
+              placeholder="Message..."
+              id="message"
+              name="message"
+              value={messageDetails.message}
+              onChange={(e) => {
+                updatemessage(e);
+              }}
+            ></textarea>
+            <button className="chatareasendbtn" type="submit">
+              send
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

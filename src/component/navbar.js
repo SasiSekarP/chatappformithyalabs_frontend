@@ -14,18 +14,22 @@ const Navbar = () => {
   return (
     <div className="navbarcontainer">
       <NavLink
-        to="/contact"
-        className={({ isActive }) => (isActive ? "activeTab" : "inactiveTab")}
+        to="/contacthome"
+        className={({ isActive }) =>
+          isActive ? "activeTab tab" : "inactiveTab tab"
+        }
       >
         Contact
       </NavLink>
       <NavLink
-        to="/group"
-        className={({ isActive }) => (isActive ? "activeTab" : "inactiveTab")}
+        to="/grouphome"
+        className={({ isActive }) =>
+          isActive ? "activeTab tab" : "inactiveTab tab"
+        }
       >
         Group
       </NavLink>
-      <button className="inactiveTab logoutbtn" onClick={logourfn}>
+      <button className="inactiveTab logoutbtn tab" onClick={logourfn}>
         Logout
       </button>
     </div>

@@ -34,8 +34,9 @@ const CreateNewGroup = () => {
         groupid,
       });
 
-      socket.disconnect();
       navigate("/setadmin", { replace: true });
+
+      socket.disconnect();
     } else {
       alert("Group name member names are mandatory to create group");
     }
@@ -70,7 +71,7 @@ const CreateNewGroup = () => {
     <div>
       <form className="loginForm" onSubmit={handlesubmit}>
         <div className="creategroupclosebtnrow">
-          <Link to="/group">close</Link>
+          <Link to="/grouphome">x</Link>
         </div>
         <h1 className="loginheader">Create New Group</h1>
         <div className="loginlablerow">
@@ -106,11 +107,12 @@ const CreateNewGroup = () => {
             );
           })}
         </div>
-        <button type="submit" className="newGroupBtn">
-          Submit
-        </button>
+        <div className="editformbtncontainer">
+          <button type="submit" className="newGroupBtn">
+            Submit
+          </button>
+        </div>
       </form>
-      <Link to="/group">go to contact page</Link>
     </div>
   );
 };

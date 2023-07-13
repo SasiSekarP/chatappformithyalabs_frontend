@@ -54,7 +54,7 @@ const Signup = () => {
 
   useEffect(() => {
     if (token) {
-      navigate("/contact", { replace: true });
+      navigate("/contacthome", { replace: true });
     }
   }, [token]);
 

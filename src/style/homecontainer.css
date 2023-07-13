@@ -1,0 +1,54 @@
+.homeleftcontainer{
+    height: 100vh;
+    width: 425px;
+}
+
+.homerightcontainer{
+    background-color: rgb(49, 31, 40);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    flex-direction: column;
+    color: white;
+}
+
+.chatleftcontainer{
+    height: 100vh;
+    width: 425px;
+}
+
+.chatrightcontainer{
+    flex: 1;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.homecontainer{
+    display: flex;
+    width: 100%;
+}
+
+.nochatscreenheader{
+    margin: 1rem;
+}
+
+.nochatscreenimg{
+    height: 50%;
+    width: auto;
+}
+
+@media screen and (max-width:400px) {
+    .homerightcontainer{
+        display: none;
+        width: 100%;flex: 1;
+    }
+
+    .chatleftcontainer{
+        display: none;
+        width: 100%;
+    }
+    
+}

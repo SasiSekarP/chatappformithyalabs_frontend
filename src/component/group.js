@@ -28,31 +28,44 @@ const Group = () => {
   }, [navigate, token]);
 
   return (
-    <div>
+    <div className="contactContainer">
       <Navbar />
-
-      <div className="chatboxlinkContainer">
+      {groupNames.length > 0 && (
         <div className="newGroupContainer">
-          <Link className="newGroupBtn" to="/createvewgroup">
-            Create Group
+          <Link className="newGroupBtnorigional" to="/createvewgroup">
+            New Group
           </Link>
         </div>
-        {groupNames.map((data) => {
-          return (
-            <Link
-              to={`/groupchatarea/${data.groupid}`}
-              key={data.groupid}
-              className="contactNames"
-            >
-              <img
-                src="https://cdn6.aptoide.com/imgs/1/2/2/1221bc0bdd2354b42b293317ff2adbcf_icon.png"
-                alt="img"
-                className="contactdp"
-              ></img>
-              <div>{data.groupname}</div>
+      )}
+      <div className="chatboxlinkContainer">
+        {groupNames.length === 0 && (
+          <div className="nogroupcontainer">
+            <h3 className="createneewgroupheading">
+              You are not in any of the groups
+            </h3>
+            <Link className="newGroupBtn" to="/createvewgroup">
+              Create Group
             </Link>
-          );
-        })}
+          </div>
+        )}
+        <div className="">
+          {groupNames.map((data) => {
+            return (
+              <Link
+                to={`/groupchatarea/${data.groupid}`}
+                key={data.groupid}
+                className="contactNames"
+              >
+                <img
+                  src="https://cdn6.aptoide.com/imgs/1/2/2/1221bc0bdd2354b42b293317ff2adbcf_icon.png"
+                  alt="img"
+                  className="contactdp"
+                ></img>
+                <div>{data.groupname}</div>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

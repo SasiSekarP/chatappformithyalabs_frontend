@@ -49,3 +49,13 @@
 .pagechangelink:hover{
     cursor: pointer;
 }
+
+@media screen and (max-width:426px) {
+    .loginlablerow{
+        width: 17rem;
+    }
+
+    .logininput{
+        width: 17rem;
+    }
+}

@@ -19,7 +19,7 @@ const Login = () => {
         Cookies.set("token", data.token, { expires: data.expire });
         Cookies.set("sender", data.username, { expires: data.expire });
 
-        navigate("/contact", { replace: true });
+        navigate("/contacthome", { replace: true });
       } else if (
         data.loginStatus === "fail" &&
         data.message === "Username and password does not match"
@@ -56,7 +56,7 @@ const Login = () => {
 
   useEffect(() => {
     if (token) {
-      navigate("/contact", { replace: true });
+      navigate("/contacthome", { replace: true });
     }
   }, [token]);
 

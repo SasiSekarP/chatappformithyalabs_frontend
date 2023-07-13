@@ -6,6 +6,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .chatareaheader{
@@ -24,6 +25,28 @@
 .closeLinkBtn{
     color: aliceblue;
     font-weight: 900;
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    position: relative;
+}
+
+.hoverbtnplafrom{
+    position: absolute;
+    z-index: 1;
+    right: -1rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.hoverbtn{
+    color: white;
+    background-color: rgb(99, 99, 99);
+    padding: 10px;
+    border-bottom: 1px solid white;
+    width: 7rem;
+    font-size: 1rem;
 }
 
 .chatboxinputrow{
@@ -109,4 +132,17 @@
     color: blue;
     font-weight: 900;
     padding-bottom: 10px;
+}
+
+.nogroupcontainer{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.createneewgroupheading{
+    margin-bottom: 1rem;
 }

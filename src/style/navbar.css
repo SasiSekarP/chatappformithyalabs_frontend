@@ -1,24 +1,31 @@
 .navbarcontainer{
-    position: fixed;
     width: 100%;
     display: flex;
     justify-content: space-around;
-    background-color: rgb(57, 57, 57);
-    padding: 1rem;
+    background-color: rgb(7, 94, 84);
+    padding: 15px 0px;
 }
 
 .activeTab{
-    color: white;
+    border-bottom: 5px rgb(18, 140, 126) solid;
     font-weight: 900;
 }
 
 .inactiveTab{
-    color: white;
+    font-weight: 500;
 }
 
 .logoutbtn{
     background-color: transparent;
     border: none;
+}
+
+.tab{
+    text-align: center;
+    color: white;
+    max-width: 10rem;
+    width: 100%;
+    padding: 1rem;
 }
 
 .logoutbtn:hover{
