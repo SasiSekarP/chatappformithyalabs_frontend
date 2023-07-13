@@ -56,11 +56,6 @@ const Setadmin = () => {
 
   return (
     <form className="loginForm" onSubmit={handlesubmit}>
-      <div className="creategroupclosebtnrow">
-        <Link to="/group">
-          <AiOutlineClose />
-        </Link>
-      </div>
       <h1 className="loginheader">Select admin</h1>
       <div className="loginlablerow">
         <div>Group name</div>

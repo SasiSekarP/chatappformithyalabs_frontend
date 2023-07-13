@@ -115,7 +115,7 @@ const Signup = () => {
         </button>
       </div>
       <div className="loginlablerow2">
-        already have an account ?<Link to="/">Login</Link>
+        Already have an account ?<Link to="/">Login</Link>
       </div>
     </form>
   );
