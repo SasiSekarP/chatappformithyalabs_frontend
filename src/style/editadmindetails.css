@@ -1,3 +1,13 @@
 .currentadminlable{
     margin-top: 1rem;
 }
+
+.deletegroupbtn{
+    margin:2rem;
+    flex-wrap: wrap;
+    width: 5rem;
+}
+
+.deletegroupbtn:hover{
+    background-color: rgb(26, 26, 236);
+}

@@ -1,11 +1,11 @@
-import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AiOutlineClose } from "react-icons/ai";
+import Cookies from "js-cookie";
+import { useState, useEffect } from "react";
 import { io } from "socket.io-client";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineClose } from "react-icons/ai";
 
-const Addadmin = () => {
+const Addmembertogroup = () => {
   const navigate = useNavigate();
   const groupid = Cookies.get("groupid");
   const groupname = Cookies.get("groupname");
@@ -24,9 +24,9 @@ const Addadmin = () => {
   };
 
   useEffect(() => {
-    socket.emit("sendlistofavailablepeopletobeadmin", groupid);
+    socket.emit("sendavailablepeopletobeagroupmember", groupid);
 
-    socket.on("responseforavaliablepeopletobeadmin", (data) => {
+    socket.on("availablememberstobethememberofgroup", (data) => {
       setavailablePeople(data);
     });
   }, []);
@@ -34,10 +34,10 @@ const Addadmin = () => {
   const handlesubmit = (e) => {
     e.preventDefault();
     if (selectedValues.length > 0) {
-      socket.emit("addadmin", {
+      socket.emit("addthismembertothegroup", {
         groupid,
         groupname,
-        admin: [...selectedValues],
+        selectedValues,
       });
       alert("Correction made successfully");
 
@@ -54,17 +54,17 @@ const Addadmin = () => {
           <AiOutlineClose />
         </Link>
       </div>
-      <h1 className="loginheader">Add admin</h1>
+      <h1 className="loginheader">Add people</h1>
       <div className="loginlablerow">Group Name</div>
       <div className="logininput">
         <div>{groupname}</div>
       </div>
       <div className="loginlablerow currentadminlable">
-        <div>Members</div>
+        <div>Available users</div>
       </div>
       {availablePeople.length === 0 && (
         <div className="logininput">
-          <div>Each Member is admin now</div>
+          <div>Each people is member now</div>
         </div>
       )}
       {availablePeople.length !== 0 && (
@@ -101,4 +101,4 @@ const Addadmin = () => {
   );
 };
 
-export default Addadmin;
+export default Addmembertogroup;

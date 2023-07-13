@@ -20,7 +20,13 @@ const Chatarea = () => {
     message: "",
   });
 
-  const [singlepersonchat, setsinglepersonchat] = useState([]);
+  const [singlepersonchat, setsinglepersonchat] = useState([
+    {
+      sender: "Sender",
+      receiver: "you",
+      message: "Still now no conversation. Say hi to start",
+    },
+  ]);
 
   const updatemessage = (e) => {
     e.preventDefault();
@@ -32,37 +38,40 @@ const Chatarea = () => {
   const socket = io("http://localhost:4000");
 
   const sendmessage = () => {
+    console.log(messageDetails);
     socket.emit("frontendsendingcontactmessage", messageDetails);
     setmessageDetails({
       sender,
       receiver,
       message: "",
     });
-
-    socket.on("messageUpdated", (data) => {
-      // window.location.reload();
-      setsinglepersonchat(data);
-    });
+    window.location.reload();
   };
 
   const mesagedisplayRef = useRef(null);
 
   useEffect(() => {
-    socket.on("backendsendingpersonalchat", (data) => {
-      setsinglepersonchat(data);
-    });
-
-    socket.on("messageUpdated", (data) => {
-      setsinglepersonchat(data);
-    });
-
     // Scroll to the bottom of the mesagedisplayarea
     mesagedisplayRef.current.scrollTop = mesagedisplayRef.current.scrollHeight;
   }, [socket]);
 
   useEffect(() => {
     socket.emit("sendSinglePersonChat", { sender, receiver, token });
-  }, []);
+
+    socket.on("backendsendingpersonalchat", (data) => {
+      setsinglepersonchat(data);
+    });
+
+    setmessageDetails({
+      sender,
+      receiver,
+      message: "",
+    });
+
+    // socket.on("messageUpdated", (data) => {
+    //   setsinglepersonchat(data);
+    // });
+  }, [receiver]);
 
   useEffect(() => {
     if (!token) {
@@ -76,7 +85,7 @@ const Chatarea = () => {
         <Contact />
       </div>
       <div className="chatrightcontainer">
-        <form onSubmit={sendmessage} className="chatareaContainer">
+        <div className="chatareaContainer">
           <div className="chatareaheader">
             <div className="singleChatProfileArea">
               <img
@@ -125,11 +134,15 @@ const Chatarea = () => {
                 updatemessage(e);
               }}
             ></textarea>
-            <button className="chatareasendbtn" type="submit">
+            <button
+              onClick={sendmessage}
+              className="chatareasendbtn"
+              type="button"
+            >
               send
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

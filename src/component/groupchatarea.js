@@ -18,7 +18,13 @@ const Groupchatarea = () => {
   const { groupid } = useParams();
   Cookies.set("groupid", groupid, { expires: 1 });
 
-  const [groupChat, setgroupChat] = useState([]);
+  const [groupChat, setgroupChat] = useState([
+    {
+      sender: "Sender",
+      receiver: "you",
+      message: "Still now no conversation. Say hi to start",
+    },
+  ]);
 
   const sender = Cookies.get("sender");
 
@@ -107,11 +113,26 @@ const Groupchatarea = () => {
                     <Link className="hoverbtn" to="/grouphome">
                       Close chat
                     </Link>
+                    <Link to="/groupuserlist" className="hoverbtn">
+                      Member List
+                    </Link>
+                    <Link to="/groupadminlist" className="hoverbtn">
+                      Admin List
+                    </Link>
                     <Link className="hoverbtn" to="/addadmin">
-                      Add
+                      Add Admin
                     </Link>
                     <Link to="/removeadmin" className="hoverbtn">
-                      Remove
+                      Remove Admim
+                    </Link>
+                    <Link to="/addmembertogroup" className="hoverbtn">
+                      Add people
+                    </Link>
+                    <Link to="/removepeople" className="hoverbtn">
+                      Remove people
+                    </Link>
+                    <Link to="/deletegroup" className="hoverbtn">
+                      Delete Group
                     </Link>
                   </div>
                 )}

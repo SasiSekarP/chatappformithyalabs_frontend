@@ -13,6 +13,8 @@
     overflow: hidden;
     flex-direction: column;
     color: white;
+    text-align: center;
+    padding: 1rem;
 }
 
 .chatleftcontainer{

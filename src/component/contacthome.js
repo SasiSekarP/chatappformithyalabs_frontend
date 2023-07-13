@@ -23,7 +23,7 @@ const Contacthome = () => {
           alt="logo"
         ></img>
         <h1 className="nochatscreenheader">ChatApp</h1>
-        <p>Chat with your any contact with out any restriction</p>
+        <p>Chat with any contact with out any restriction</p>
       </div>
     </div>
   );
