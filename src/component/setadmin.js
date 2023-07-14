@@ -81,7 +81,10 @@ const Setadmin = () => {
         })}
       </div>
       <div className="editformbtncontainer">
-        <button type="submit" className="newGroupBtn">
+        <button type="submit" className="newGroupBtn deletegroupbtn">
+          Back
+        </button>
+        <button type="submit" className="newGroupBtn deletegroupbtn">
           Submit
         </button>
       </div>
